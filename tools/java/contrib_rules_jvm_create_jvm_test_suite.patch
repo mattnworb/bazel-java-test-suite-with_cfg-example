@@ -1,0 +1,21 @@
+diff --git a/java/private/create_jvm_test_suite.bzl b/java/private/create_jvm_test_suite.bzl
+index c86a660..c67f556 100644
+--- a/java/private/create_jvm_test_suite.bzl
++++ b/java/private/create_jvm_test_suite.bzl
+@@ -39,6 +39,7 @@ def create_jvm_test_suite(
+         size = None,
+         package_prefixes = [],
+         test_suffixes_excludes = [],
++        test_name_suffix = "",
+         **kwargs):
+     """Generate a test suite for rules that "feel" like `java_test`.
+
+@@ -109,7 +110,7 @@ def create_jvm_test_suite(
+         test_class = get_class_name(package, src, package_prefixes)
+
+         test_name = define_test(
+-            name = test_name,
++            name = test_name + test_name_suffix,
+             size = size,
+             srcs = [src],
+             test_class = test_class,
