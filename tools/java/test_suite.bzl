@@ -32,15 +32,28 @@ def java_test_suite(
             **kwargs
         )
 
+    # call create_jvm_test_suite once per test runner, to allow for e.g.
+    # defining/running test targets on different JDK versions
     for name_suffix, define_test_fn in test_runners.items():
         # create_jvm_test_suite expects the function passed in the 'define_test'
         # attr to return the name of the target
+
+        # normally the define_test_fn would be passed to create_jvm_test_suite
+        # directly, but we want to customize the logic: when we are creating
+        # more than 1 test suite, we need to customize the name of each
+        # individual test target to avoid reusing the same target names (which
+        # will cause a Bazel error).
+        #
+        # Being able to customize the 'define_test' function is the entire
+        # reason why we call create_jvm_test_suite() here, rather than
+        # java_test_suite().
         def wrapped_test_fn(name, **kwargs):
-            define_test_fn(name = name, **kwargs)
-            return name
+            test_name = name if name_suffix == "" else name + "-" + name_suffix
+            define_test_fn(name = test_name, **kwargs)
+            return test_name
 
         create_jvm_test_suite(
-            name = name + "-" + name_suffix,
+            name = name if name_suffix == "" else name + "-" + name_suffix,
             srcs = _maybe_glob(srcs),
             data = _maybe_glob(data),
             plugins = plugins,
@@ -54,10 +67,6 @@ def java_test_suite(
             deps = [dep for dep in deps],
             jvm_flags = ["-Dsun.net.maxDatagramSockets=1024"],
             tags = tags,
-            # this is a custom patch we made to contrib-rules-jvm to allow
-            # defining a test from a certain file more than once, as otherwise
-            # the target name is based on the test's filename
-            test_name_suffix = "-" + name_suffix,
         )
 
 # handle the case where some list may be a mix of file globs and target labels
