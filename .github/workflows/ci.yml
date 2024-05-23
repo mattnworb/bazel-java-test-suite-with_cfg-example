@@ -23,7 +23,7 @@ jobs:
           repository-cache: true
 
       - name: bazel test //...
-        run: bazel test //...
+        run: bazel test //... --action_env=CI=true
 
       # archive test logs, always
       - if: ${{ always() }}
