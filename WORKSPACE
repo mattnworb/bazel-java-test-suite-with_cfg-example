@@ -41,7 +41,7 @@ maven_install(
         "org.junit.platform:junit-platform-suite-engine:jar:1.10.2",
         "org.junit.platform:junit-platform-testkit:jar:1.10.2",
         "org.junit.vintage:junit-vintage-engine:jar:5.10.2",
-        "org.hamcrest:hamcrest:jar:2.2",
+        "org.hamcrest:hamcrest:2.2:2.2",
     ],
     duplicate_version_warning = "error",
     fail_if_repin_required = True,
