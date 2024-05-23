@@ -45,8 +45,8 @@ maven_install(
     ],
     duplicate_version_warning = "error",
     fail_if_repin_required = True,
-     maven_install_json = "//:maven_install.json",
     fetch_sources = True,
+    maven_install_json = "//:maven_install.json",
     repositories = [
         "https://repo1.maven.org/maven2",
     ],
@@ -78,10 +78,6 @@ remote_java_repositories()
 
 http_archive(
     name = "contrib_rules_jvm",
-    patch_args = ["-p1"],
-    patches = [
-        "//tools/java:contrib_rules_jvm_create_jvm_test_suite.patch",
-    ],
     sha256 = "2412e22bc1eb9d3a5eae15180f304140f1aad3f8184dbd99c845fafde0964559",
     strip_prefix = "rules_jvm-0.24.0",
     url = "https://github.com/bazel-contrib/rules_jvm/releases/download/v0.24.0/rules_jvm-v0.24.0.tar.gz",

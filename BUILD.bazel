@@ -1,7 +1,6 @@
 load("@rules_java//toolchains:default_java_toolchain.bzl", "default_java_toolchain")
 load("@rules_java//toolchains:java_toolchain_alias.bzl", "java_runtime_version_alias")
 
-
 # this is useful to avoid having to code things like
 # java_runtime = "@example_remotejdk_21_macos_x64//:jdk"
 java_runtime_version_alias(
