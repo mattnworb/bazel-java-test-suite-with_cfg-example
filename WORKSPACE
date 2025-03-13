@@ -61,8 +61,8 @@ pinned_maven_install()
 # rules_java
 http_archive(
     name = "rules_java",
-    sha256 = "476bd403f284e5080037f1910a29ce4c482ac798a3560c2e0df6d6f1857011b6",
-    urls = ["https://github.com/bazelbuild/rules_java/releases/download/8.10.0/rules_java-8.10.0.tar.gz"],
+    sha256 = "d31b6c69e479ffa45460b64dc9c7792a431cac721ef8d5219fc9f603fa2ff877",
+    urls = ["https://github.com/bazelbuild/rules_java/releases/download/8.11.0/rules_java-8.11.0.tar.gz"],
 )
 
 load("@rules_java//java:repositories.bzl", "rules_java_dependencies")
