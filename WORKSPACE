@@ -94,7 +94,7 @@ contrib_rules_jvm_setup()
 # with_cfg.bzl
 http_archive(
     name = "with_cfg.bzl",
-    sha256 = "d83f99ac39cd9940848ea11a51a60159cf09cda2ba30545036041551aae73ab4",
-    strip_prefix = "with_cfg.bzl-0.6.1",
-    url = "https://github.com/fmeum/with_cfg.bzl/releases/download/v0.6.1/with_cfg.bzl-v0.6.1.tar.gz",
+    sha256 = "2e09939d8a404da11a4fc1b7931ce1d76541a4c53970138cf0a4a50c4b257e7b",
+    strip_prefix = "with_cfg.bzl-0.10.1",
+    url = "https://github.com/fmeum/with_cfg.bzl/releases/download/v0.10.1/with_cfg.bzl-v0.10.1.tar.gz",
 )
