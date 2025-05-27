@@ -78,9 +78,9 @@ remote_java_repositories()
 
 http_archive(
     name = "contrib_rules_jvm",
-    sha256 = "e6cd8f54b7491fb3caea1e78c2c740b88c73c7a43150ec8a826ae347cc332fc7",
-    strip_prefix = "rules_jvm-0.27.0",
-    url = "https://github.com/bazel-contrib/rules_jvm/releases/download/v0.27.0/rules_jvm-v0.27.0.tar.gz",
+    sha256 = "2a325caa40b00f3bdcd794a4aace2a5230fb5fc4c602639dbfe5126588a34132",
+    strip_prefix = "rules_jvm-0.28.0",
+    url = "https://github.com/bazel-contrib/rules_jvm/releases/download/v0.28.0/rules_jvm-v0.28.0.tar.gz",
 )
 
 load("@contrib_rules_jvm//:repositories.bzl", "contrib_rules_jvm_deps")
