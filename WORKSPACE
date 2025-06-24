@@ -23,7 +23,7 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 
 maven_install(
     artifacts = [
-        "org.junit.jupiter:junit-jupiter:5.11.3",
+        "org.junit.jupiter:junit-jupiter:5.13.2",
         "org.junit.jupiter:junit-jupiter-api:5.11.3",
         "org.junit.jupiter:junit-jupiter-engine:5.11.3",
         "org.junit.jupiter:junit-jupiter-migrationsupport:5.11.3",
