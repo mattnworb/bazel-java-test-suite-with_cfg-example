@@ -27,7 +27,7 @@ maven_install(
         "org.junit.jupiter:junit-jupiter-api:5.11.3",
         "org.junit.jupiter:junit-jupiter-engine:5.11.3",
         "org.junit.jupiter:junit-jupiter-migrationsupport:5.11.3",
-        "org.junit.jupiter:junit-jupiter-params:5.11.3",
+        "org.junit.jupiter:junit-jupiter-params:5.13.2",
         "org.junit.platform:junit-platform-commons:1.11.3",
         "org.junit.platform:junit-platform-console:1.11.3",
         "org.junit.platform:junit-platform-engine:1.11.3",
