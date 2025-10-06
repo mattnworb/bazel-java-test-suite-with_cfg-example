@@ -1,4 +1,5 @@
 load("@contrib_rules_jvm//java:defs.bzl", "JUNIT5_DEPS")
+load("@rules_java//java:java_library.bzl", "java_library")
 load("//tools/java:java_17_junit5_test.bzl", "java_17_junit5_test")
 load("//tools/java:java_21_junit5_test.bzl", "java_21_junit5_test")
 load("//tools/java:test_suite.bzl", "java_test_suite")
@@ -11,8 +12,8 @@ java_library(
 java_test_suite(
     name = "test-suite",
     test_runners = {
-        "jdk21": java_21_junit5_test,
         "jdk17": java_17_junit5_test,
+        "jdk21": java_21_junit5_test,
     },
     deps = JUNIT5_DEPS + [
         "lib",
