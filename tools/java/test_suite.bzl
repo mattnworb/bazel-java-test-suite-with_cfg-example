@@ -7,7 +7,6 @@ def java_test_suite(
         name,
         srcs = ["src/test/java/**/*.java"],
         deps = [],
-        runner = "junit5",
         test_runners = {},
         test_suffixes = ["Test.java"],
         plugins = [],
@@ -19,10 +18,7 @@ def java_test_suite(
         return
 
     if not test_runners:
-        if runner == "junit5":
-            test_runners = {"": java_junit5_test}
-        else:
-            test_runners = {"": java_test}
+        test_runners = {"": java_junit5_test}
 
     def _define_library(name, **kwargs):
         java_library(
@@ -54,7 +50,6 @@ def java_test_suite(
             name = name if name_suffix == "" else name + "-" + name_suffix,
             srcs = srcs,
             plugins = plugins,
-            runner = runner,
             package = None,  # set to None to have rule infer package name
             define_library = _define_library,
             define_test = wrapped_test_fn,
