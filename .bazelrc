@@ -1,12 +1,14 @@
 # use Java 21 both for building and running tools
-common --java_language_version=21 --java_runtime_version=example_remotejdk_21 --tool_java_language_version=21 --tool_java_runtime_version=example_remotejdk_21
-common --extra_toolchains=//:example_toolchain_jdk_21_definition
+common --java_language_version=21
+common --java_runtime_version=remotejdk_21
+common --tool_java_language_version=21
+common --tool_java_runtime_version=remotejdk_21
 
 # Makes sure rules_jvm_external uses the embedded JDK, see https://github.com/bazelbuild/rules_jvm_external/issues/445
 # This is not ideal and we want to monitor the linked issue, as well as https://github.com/bazelbuild/rules_jvm_external/issues/1046
 common --repo_env=JAVA_HOME=../bazel_tools/jdk
 
-common --noenable_bzlmod
+common --enable_bzlmod
 
 common --experimental_convenience_symlinks=ignore
 

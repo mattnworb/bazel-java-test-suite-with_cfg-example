@@ -1,0 +1,45 @@
+module(
+    name = "bazel-java-test-suite-with_cfg-example",
+    version = "0.0.0",
+)
+
+# Core dependencies
+bazel_dep(name = "rules_java", version = "8.16.1")
+bazel_dep(name = "rules_jvm_external", version = "6.7")
+bazel_dep(name = "contrib_rules_jvm", version = "0.27.0")
+bazel_dep(name = "with_cfg.bzl", version = "0.6.1")
+
+# Maven dependencies
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    artifacts = [
+        "org.junit.jupiter:junit-jupiter:5.11.3",
+        "org.junit.jupiter:junit-jupiter-api:5.11.3",
+        "org.junit.jupiter:junit-jupiter-engine:5.11.3",
+        "org.junit.jupiter:junit-jupiter-migrationsupport:5.11.3",
+        "org.junit.jupiter:junit-jupiter-params:5.11.3",
+        "org.junit.platform:junit-platform-commons:1.11.3",
+        "org.junit.platform:junit-platform-console:1.11.3",
+        "org.junit.platform:junit-platform-engine:1.11.3",
+        "org.junit.platform:junit-platform-jfr:1.11.3",
+        "org.junit.platform:junit-platform-launcher:1.11.3",
+        "org.junit.platform:junit-platform-reporting:1.11.3",
+        "org.junit.platform:junit-platform-runner:1.11.3",
+        "org.junit.platform:junit-platform-suite:1.11.3",
+        "org.junit.platform:junit-platform-suite-api:1.11.3",
+        "org.junit.platform:junit-platform-suite-commons:1.11.3",
+        "org.junit.platform:junit-platform-suite-engine:1.11.3",
+        "org.junit.platform:junit-platform-testkit:1.11.3",
+        "org.junit.vintage:junit-vintage-engine:5.11.3",
+        "org.hamcrest:hamcrest:3.0",
+    ],
+    duplicate_version_warning = "error",
+    fail_if_repin_required = True,
+    fetch_sources = True,
+    lock_file = "//:maven_install.json",
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+    version_conflict_policy = "pinned",
+)
+use_repo(maven, "maven")
