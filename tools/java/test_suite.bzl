@@ -7,14 +7,12 @@ def java_test_suite(
         name,
         srcs = ["src/test/java/**/*.java"],
         deps = [],
-        resources = ["src/test/resources/**/*"],
-        data = ["src/main/resources/**/*", "src/test/resources/**/*"],
         runner = "junit5",
         test_runners = {},
         test_suffixes = ["Test.java"],
         plugins = [],
         tags = []):
-    srcs = _maybe_glob(srcs)
+    srcs = native.glob(srcs)
 
     if not srcs:
         # no test sources found, nothing to do here
@@ -54,10 +52,8 @@ def java_test_suite(
 
         create_jvm_test_suite(
             name = name if name_suffix == "" else name + "-" + name_suffix,
-            srcs = _maybe_glob(srcs),
-            data = _maybe_glob(data),
+            srcs = srcs,
             plugins = plugins,
-            resources = native.glob(resources),
             runner = runner,
             package = None,  # set to None to have rule infer package name
             define_library = _define_library,
@@ -68,14 +64,3 @@ def java_test_suite(
             jvm_flags = ["-Dsun.net.maxDatagramSockets=1024"],
             tags = tags,
         )
-
-# handle the case where some list may be a mix of file globs and target labels
-def _maybe_glob(inputs):
-    out = []
-
-    for input in inputs:
-        if "*" in input:
-            out += native.glob([input])
-        else:
-            out.append(input)
-    return out
