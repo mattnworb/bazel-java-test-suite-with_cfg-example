@@ -4,7 +4,7 @@ module(
 )
 
 # Core dependencies
-bazel_dep(name = "rules_java", version = "9.0.3")
+bazel_dep(name = "rules_java", version = "9.1.0")
 bazel_dep(name = "rules_jvm_external", version = "6.9")
 bazel_dep(name = "contrib_rules_jvm", version = "0.31.1")
 bazel_dep(name = "with_cfg.bzl", version = "0.14.1")
