@@ -7,7 +7,7 @@ module(
 bazel_dep(name = "rules_java", version = "9.7.0")
 bazel_dep(name = "rules_jvm_external", version = "6.9")
 bazel_dep(name = "contrib_rules_jvm", version = "0.32.0")
-bazel_dep(name = "with_cfg.bzl", version = "0.14.6")
+bazel_dep(name = "with_cfg.bzl", version = "1.0.0")
 
 # Maven dependencies
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
