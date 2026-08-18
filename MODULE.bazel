@@ -37,7 +37,7 @@ maven.install(
         # resolving warnings about conflicts across bazel modules using the "maven" repo name
         "com.google.code.gson:gson:2.14.0",
         "com.google.errorprone:error_prone_annotations:2.50.0",
-        "com.google.guava:guava:33.7.0-jre",
+        "com.google.guava:guava:33.7.1-jre",
     ],
     fetch_sources = True,
     repositories = [
